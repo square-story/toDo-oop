@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do App</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>To-do List</h1>
+
+        <form action="/create" method="POST" class="task-form">
+            <input type="text" name="title" placeholder="Title" required />
+            <textarea name="description" placeholder="Description" required></textarea>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <h2>Your Tasks</h2>
+        <ul>
+            <% tasks.forEach(task => { %>
+                <li>
+                    <strong><%= task.title %>:</strong> <%= task.description %> - <%= task.status %>
+                    <form action="/complete/<%= task.id %>" method="POST" style="display:inline;">
+                        <button class="btn btn-complete" type="submit">✔️ Complete</button>
+                    </form>
+                    <form action="/delete/<%= task.id %>" method="POST" style="display:inline;">
+                        <button class="btn btn-delete" type="submit">🗑️ Delete</button>
+                    </form>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+</body>
+</html>
