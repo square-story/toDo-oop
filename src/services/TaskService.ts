@@ -24,4 +24,14 @@ export class TaskService {
         const task = this.tasks.find(task => task.id === id);
         if (task) task.markComplete();
     }
+    getTaskById(id: string) {
+        return this.tasks.find(item => item.id === id)
+    }
+    editTask(id: string, title: string, description: string) {
+        const task = this.getTaskById(id);
+        if (task) {
+            task.title = title;
+            task.description = description;
+        }
+    }
 }

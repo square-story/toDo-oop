@@ -27,3 +27,16 @@ export const markTaskComplete = (req: Request, res: Response) => {
     taskService.markTaskComplete(id);
     res.redirect('/');
 };
+
+export const getEditTaskPage = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const task = taskService.getTaskById(id);
+    res.render('editTask', { task });
+}
+
+export const editTask = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { title, description } = req.body
+    taskService.editTask(id, title, description);  // Call the service method to update the task
+    res.redirect('/');
+}
