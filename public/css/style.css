@@ -88,3 +88,13 @@ li {
     background-color: #c82333;
     transform: scale(1.05);
 }
+
+.btn-uncomplete {
+    background-color: #f5e068; /* Green */
+    color: white;
+}
+
+.btn-uncomplete:hover {
+    background-color: #e7cc31;
+    transform: scale(1.05);
+}

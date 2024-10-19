@@ -24,7 +24,7 @@
         <ul>
             <% tasks.forEach(task => { if(task.status !== 'complete') { %> <!-- Show only uncompleted tasks here -->
                 <li>
-                    <strong><%= task.title %>:</strong> <%= task.description %> - <%= task.status %>
+                    <strong><%= task.title %>:</strong> <%= task.description %>
                     <form action="/complete/<%= task.id %>" method="POST" style="display:inline;">
                         <button class="btn btn-complete" type="submit">✔️ Complete</button>
                     </form>
@@ -46,6 +46,9 @@
                     <strong><%= task.title %>:</strong> <%= task.description %>
                     <form action="/delete/<%= task.id %>" method="POST" style="display:inline;">
                         <button class="btn btn-delete" type="submit">🗑️ Delete</button>
+                    </form>
+                    <form action="/uncomplete/<%= task.id %>" method="POST" style="display:inline;">
+                        <button class="btn btn-uncomplete" type="submit">❌ incompleted</button>
                     </form>
                 </li>
             <% } }) %> <!-- Close the completed tasks filter -->

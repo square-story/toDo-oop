@@ -13,4 +13,7 @@ export class Task {
     markComplete(): void {
         this.status = 'complete';
     }
+    markUncomplete(): void {
+        this.status = 'pending'
+    }
 }

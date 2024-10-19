@@ -34,4 +34,8 @@ export class TaskService {
             task.description = description;
         }
     }
+    markTaskUncomplete(id: string): void {
+        const task = this.tasks.find(item => item.id === id)
+        if (task) task.markUncomplete();
+    }
 }
